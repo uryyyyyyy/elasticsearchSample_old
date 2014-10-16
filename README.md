@@ -44,7 +44,7 @@ you can customize mapping.json, refer from http://www.elasticsearch.org/guide/en
 
 ### testing import data correctly
 
-try `script/sampleQuery.sh`
+try each curl script in `script/sampleQuery.sh`
 
 
 
@@ -55,3 +55,4 @@ try `script/sampleQuery.sh`
 * http://easyramble.com/install-elasticsearch-import-data.html
 * http://code46.hatenablog.com/entry/2014/01/21/115620
 * http://engineer.wantedly.com/2014/02/25/elasticsearch-at-wantedly-1.html
+* http://dev.classmethod.jp/cloud/aws/use-elasticsearch-1-use-kuromoji/
