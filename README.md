@@ -48,7 +48,15 @@ try each curl script in `script/sampleQuery.sh`
 
 
 
+### Reset data or index
 
+* delete index `curl -XDELETE 'http://localhost:9200/ldgourmet/'`
+
+* data-mapping
+
+* data-import
+
+*Warning* : data import may occur error, please check filename of `restaurant.csv` and retry `curl -XPUT localhost:9200/_river/my_csv_river2/_meta -d @script/import.json`
 
 ## reference
 

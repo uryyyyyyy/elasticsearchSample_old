@@ -1,4 +1,16 @@
 
+### elasticsearchとは？
+
+何が便利なの？
+
+・複数のフィールド（カラム）をまたいだ全文検索
+
+・autocompleteやsuggest
+
+・各種分析（trend・集計・ログ解析）ができる。（Kibanaなどで可視化できる）
+
+・特定の条件になった際のpush通知
+
 ### 用語
 
 #### analysis
@@ -42,4 +54,7 @@ NoSQLなどで言われているNodeと同じ感じ。
 
 実際に処理を行う単位
 
+./elasticsearch --cluster.name my_cluster_name --node.name my_node_name
+
+デフォルトではelasticsearchというクラスタが立ち上がる。node名はランダム。
 
