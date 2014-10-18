@@ -3,6 +3,11 @@ elasticsearchSample
 
 ## setup
 
+### require
+
+Java 6~
+curl (or other)
+
 ### downloads
 
 * elasticsearch : (I use v1.3.4)
