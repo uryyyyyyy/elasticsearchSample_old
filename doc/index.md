@@ -1,5 +1,7 @@
 
-### elasticsearchとは？
+## elasticsearchとは？
+
+全文検索エンジン（NoSQLの一種）
 
 何が便利なの？
 
@@ -11,50 +13,13 @@
 
 ・特定の条件になった際のpush通知
 
-### 用語
 
-#### analysis
+## 物理・論理構成
 
-どういうロジックでデータの保存・取得をしているかをまとめます。
+archtecture.md
 
-#### tokenizer
+## 構文解析
 
-文字列をどう分割するかをまとめたもの。スペース区切り、N-gramや形態素解析が一般的
+analysis.md
 
-
-### 論理構成
-
-#### index
-
-RDBのスキーマに相当
-
-#### Type
-
-RDBのテーブルに相当
-
-#### Field
-
-RDBのカラムに相当。
-
-#### Document
-
-RDBのレコードに相当
-
-### 物理構成
-
-#### Cluster
-
-複数のノードを束ねたもの。
-データアクセスはクラスタ単位で受け取る。
-
-#### Node
-
-NoSQLなどで言われているNodeと同じ感じ。
-実際にアプリケーションが動作している単位。１マシン１ノードが一般的
-
-実際に処理を行う単位
-
-./elasticsearch --cluster.name my_cluster_name --node.name my_node_name
-
-デフォルトではelasticsearchというクラスタが立ち上がる。node名はランダム。
 

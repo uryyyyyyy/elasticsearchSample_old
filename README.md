@@ -40,9 +40,12 @@ you can customize mapping.json, refer from http://www.elasticsearch.org/guide/en
 
 ### data import
 
+* change `import.json` line4 to your own folder from `YOUR_FOLDER`
+
+
 `curl -XPUT localhost:9200/_river/my_csv_river/_meta -d @script/import.json`
 
-* change your own folder from `YOUR_FOLDER`
+
 
 (using river-csv plugin)
 

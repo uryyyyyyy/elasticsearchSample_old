@@ -14,4 +14,8 @@ Cacheが効く。
 ・単純にフィールド値の大小などで絞り込み検索を行うケース
 ・relevance scoreに関係ない検索を行うケース
 
+## query
 
+### idを指定する。
+
+curl -XGET http://localhost:9200/[INDEX]/[TYPE]?pretty
