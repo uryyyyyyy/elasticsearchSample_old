@@ -1,7 +1,7 @@
 {
   "type" : "csv",
   "csv_file" : {
-    "folder" : "/YOUR_FOLDER/elasticsearchSample/datasets",
+    "folder" : "./datasets",
     "filename_pattern" : "restaurants\\.csv$",
     "fields" : [
       "id",
@@ -52,7 +52,7 @@
   "index" : {
     "index" : "ldgourmet",
     "type" : "restaurant",
-    "bulk_size" : 100,
+    "bulk_size" : 1000,
     "bulk_threshold" : 10
   }
 }

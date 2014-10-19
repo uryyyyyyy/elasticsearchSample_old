@@ -13,6 +13,17 @@ curl (or other)
 * elasticsearch : (I use v1.3.4)
 * datasets : (https://github.com/livedoor/datasets)
 
+set these folder like this
+
+```
+.
+├── datasets
+├── doc
+├── elasticsearch-1.3.4
+├── README.md
+└── script
+
+```
 
 ### plugins
 
@@ -32,25 +43,17 @@ curl (or other)
 * https://github.com/AgileWorksOrg/elasticsearch-river-csv
 	- csv converter
 
-### mapping
+### mapping&data import
 
-`curl -XPOST localhost:9200/ldgourmet -d @script/mapping.json`
+`sh ./script/data_import.sh`
 
-you can customize mapping.json, refer from http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/mapping-core-types.html
-
-### data import
-
-* change `import.json` line4 to your own folder from `YOUR_FOLDER`
-
-
-`curl -XPUT localhost:9200/_river/my_csv_river/_meta -d @script/import.json`
-
-
+you can customize mapping.json, refer from
+http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/mapping-core-types.html
 
 (using river-csv plugin)
 
 
-### testing import data correctly
+### testing if data imported correctly
 
 try each curl script in `script/sampleQuery.sh`
 
@@ -58,13 +61,9 @@ try each curl script in `script/sampleQuery.sh`
 
 ### Reset data or index
 
-* delete index `curl -XDELETE 'http://localhost:9200/ldgourmet/'`
+(when update mapping.json, or ldgourmet index was broken)
 
-* data-mapping
-
-* data-import
-
-*Warning* : data import may occur error, please check filename of `restaurant.csv` and retry `curl -XPUT localhost:9200/_river/my_csv_river2/_meta -d @script/import.json`
+`sh ./script/data_import.sh`
 
 ## reference
 
