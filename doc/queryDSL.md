@@ -19,3 +19,26 @@ Cacheが効く。
 ### idを指定する。
 
 curl -XGET http://localhost:9200/[INDEX]/[TYPE]?pretty
+
+
+### スコアリング
+
+Queryによっては一致度をスコアできる。それによって、関連度が高いものを抽出できる。
+
+
+### Filter
+
+キャッシュしておく。
+scoreが1.0になる。（スコアは図られない。）
+
+生存期間と、整合性が気になる。
+
+
+
+* versionの取得
+* scriptの使用（なんかうまくいかなかった。使わなくていいよね？）
+* term（キーワード検索）
+* match（文字列をanalyzeして部分一致で検索）
+* boolにして複数条件を釣る。
+* 重み付け（scorering Boost）できる。
+
