@@ -4,3 +4,4 @@ datasets/
 .classpath
 .project
 target/
+.settings/
