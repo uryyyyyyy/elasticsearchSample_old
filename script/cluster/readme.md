@@ -35,7 +35,9 @@ elasticsearchを任意の文字列にしてみる。
 
 elasticsearch.yml 40: node.name: "Franz Kafka"
 
+## データが同期されてるかを確認してみる。
 
+一つのノードへデータを保存して、別ノードで取得してみる。
 
 ## 仕組み
 
