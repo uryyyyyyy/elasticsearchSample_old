@@ -17,7 +17,7 @@ public class Formatter {
 				.collect(Collectors.toList());
 	}
 
-	private static RestaurantDTO toRestaurantDTO(Map<String, Object> s) {
+	public static RestaurantDTO toRestaurantDTO(Map<String, Object> s) {
 		return new RestaurantDTO((String)s.get("name"), (String)s.get("address"));
 	}
 
