@@ -22,6 +22,7 @@ public class Formatter {
 	}
 
 	public static void print(List<RestaurantDTO> responseList) {
+		System.out.println("result name -----------------");
 		responseList.stream().map(e -> e.getName()).forEach(System.out::println);
 	}
 

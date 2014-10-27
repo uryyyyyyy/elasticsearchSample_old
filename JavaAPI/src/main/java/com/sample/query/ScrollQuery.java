@@ -19,7 +19,7 @@ import com.sample.util.SearchExecuter;
 public class ScrollQuery {
 
 	public static void main(String[] args) throws Exception {
-		int sizeParShard = 10;
+		int sizeParShard = 1;//defaultで5シャードあるらしいので1*5件返ってくる。
 
 		QueryBuilder query = QueryBuilders.matchAllQuery();
 		SearchRequestBuilder request = ClientProvider.searchForRestaurant()

@@ -7,6 +7,9 @@ import org.elasticsearch.action.search.SearchRequestBuilder;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
+import org.elasticsearch.index.query.SimpleQueryStringBuilder.Operator;
+import org.elasticsearch.search.sort.SortBuilders;
+import org.elasticsearch.search.sort.SortOrder;
 
 import com.sample.data.Restaurant;
 import com.sample.util.ClientProvider;
@@ -14,12 +17,10 @@ import com.sample.util.Formatter;
 import com.sample.util.RestaurantDTO;
 import com.sample.util.SearchExecuter;
 
-public class BoostQuery {
+public class SortQuery {
 
 	/**
-	 * フリーワード検索する。</br>
-	 *
-	 * その際、〜〜の項目は重み付けする。(それぞれ2.0ずつ)
+	 * sort AND検索
 	 *
 	 * @param keyword
 	 * @param size
@@ -29,15 +30,18 @@ public class BoostQuery {
 	 * @throws InterruptedException 
 	 */
 	public static void main(String[] args) throws Exception {
-		String keyword = "東京";
+		String queryString = "東京";
 		
 		QueryBuilder query = QueryBuilders
-				.multiMatchQuery(keyword, Restaurant.ADDRESS)
-				.field(Restaurant.NAME, 2.0f)
-				.field(Restaurant.NAME_KANA, 2.0f);
+				.simpleQueryString(queryString)
+				.field(Restaurant.NAME)
+				.field(Restaurant.NAME_KANA)
+				.field(Restaurant.ADDRESS)
+				.defaultOperator(Operator.AND);
 
 		SearchRequestBuilder request = ClientProvider.searchForRestaurant()
-				.setQuery(query);
+				.setQuery(query)
+				.addSort(SortBuilders.fieldSort(Restaurant.ACCESS_COUNT).order(SortOrder.DESC).missing("_last"));
 		SearchResponse response = SearchExecuter.exec(request);
 		List<RestaurantDTO> sourse = Formatter.sourceOf(response);
 		Formatter.print(sourse);

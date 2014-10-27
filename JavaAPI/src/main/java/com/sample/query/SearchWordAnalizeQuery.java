@@ -12,6 +12,7 @@ import com.sample.data.Restaurant;
 import com.sample.util.ClientProvider;
 import com.sample.util.Formatter;
 import com.sample.util.RestaurantDTO;
+import com.sample.util.SearchExecuter;
 
 public class SearchWordAnalizeQuery {
 
@@ -36,13 +37,7 @@ public class SearchWordAnalizeQuery {
 
 		SearchRequestBuilder request = ClientProvider.searchForRestaurant()
 				.setQuery(query);
-		System.out.println("-----------------");
-		System.out.println(request);
-		System.out.println("-----------------");
-		SearchResponse response = request.execute().get();
-		System.out.println(response);
-		System.out.println("-----------------");
-
+		SearchResponse response = SearchExecuter.exec(request);
 		List<RestaurantDTO> sourse = Formatter.sourceOf(response);
 		Formatter.print(sourse);
 	}

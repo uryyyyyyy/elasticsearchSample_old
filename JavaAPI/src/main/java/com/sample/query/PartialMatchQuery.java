@@ -14,12 +14,10 @@ import com.sample.util.Formatter;
 import com.sample.util.RestaurantDTO;
 import com.sample.util.SearchExecuter;
 
-public class BoostQuery {
+public class PartialMatchQuery {
 
 	/**
-	 * フリーワード検索する。</br>
-	 *
-	 * その際、〜〜の項目は重み付けする。(それぞれ2.0ずつ)
+	 * 部分一致検索
 	 *
 	 * @param keyword
 	 * @param size
@@ -32,9 +30,8 @@ public class BoostQuery {
 		String keyword = "東京";
 		
 		QueryBuilder query = QueryBuilders
-				.multiMatchQuery(keyword, Restaurant.ADDRESS)
-				.field(Restaurant.NAME, 2.0f)
-				.field(Restaurant.NAME_KANA, 2.0f);
+				.multiMatchQuery(keyword, Restaurant.NAME_KANA, Restaurant.NAME)
+				.analyzer("my_edge_ngram_analyzer");
 
 		SearchRequestBuilder request = ClientProvider.searchForRestaurant()
 				.setQuery(query);

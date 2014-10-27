@@ -14,12 +14,10 @@ import com.sample.util.Formatter;
 import com.sample.util.RestaurantDTO;
 import com.sample.util.SearchExecuter;
 
-public class BoostQuery {
+public class AutoCompleteQuery {
 
 	/**
-	 * フリーワード検索する。</br>
-	 *
-	 * その際、〜〜の項目は重み付けする。(それぞれ2.0ずつ)
+	 * 前方一致検索
 	 *
 	 * @param keyword
 	 * @param size
@@ -29,12 +27,11 @@ public class BoostQuery {
 	 * @throws InterruptedException 
 	 */
 	public static void main(String[] args) throws Exception {
-		String keyword = "東京";
+		String prefix = "東京";
 		
-		QueryBuilder query = QueryBuilders
-				.multiMatchQuery(keyword, Restaurant.ADDRESS)
-				.field(Restaurant.NAME, 2.0f)
-				.field(Restaurant.NAME_KANA, 2.0f);
+		QueryBuilder query = QueryBuilders.disMaxQuery()
+				.add(QueryBuilders.prefixQuery(Restaurant.NAME_KANA, prefix))
+				.add(QueryBuilders.prefixQuery(Restaurant.NAME, prefix));
 
 		SearchRequestBuilder request = ClientProvider.searchForRestaurant()
 				.setQuery(query);
