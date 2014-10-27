@@ -9,11 +9,20 @@ import org.elasticsearch.action.search.SearchResponse;
 
 public class Formatter {
 
-	public static List<Map<String, Object>> sourceOf(SearchResponse response) {
+	public static List<RestaurantDTO> sourceOf(SearchResponse response) {
 		return StreamSupport
 				.stream(response.getHits().spliterator(), false)
 				.map(s -> s.getSource())
+				.map(s -> toRestaurantDTO(s))
 				.collect(Collectors.toList());
+	}
+
+	private static RestaurantDTO toRestaurantDTO(Map<String, Object> s) {
+		return new RestaurantDTO((String)s.get("name"), (String)s.get("address"));
+	}
+
+	public static void print(List<RestaurantDTO> responseList) {
+		responseList.stream().map(e -> e.getName()).forEach(System.out::println);
 	}
 
 }

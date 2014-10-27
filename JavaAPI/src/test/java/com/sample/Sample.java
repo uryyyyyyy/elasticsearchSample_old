@@ -1,7 +1,6 @@
 package com.sample;
 
 import java.util.List;
-import java.util.Map;
 
 import org.elasticsearch.action.search.SearchRequestBuilder;
 import org.elasticsearch.action.search.SearchResponse;
@@ -11,7 +10,8 @@ import org.junit.Test;
 
 import com.sample.util.ClientProvider;
 import com.sample.util.Formatter;
-import com.sample.util.SystemPrinter;
+import com.sample.util.RestaurantDTO;
+import com.sample.util.SearchExecuter;
 
 
 public class Sample {
@@ -21,8 +21,8 @@ public class Sample {
 		QueryBuilder query = QueryBuilders.matchAllQuery();
 		SearchRequestBuilder request = ClientProvider.searchForRestaurant()
 				.setQuery(query);
-		SearchResponse response = SystemPrinter.print(request);
-		List<Map<String, Object>> sourse = Formatter.sourceOf(response);
-		sourse.stream().map(e -> e.get("name")).forEach(System.out::println);
+		SearchResponse response = SearchExecuter.exec(request);
+		List<RestaurantDTO> sourse = Formatter.sourceOf(response);
+		Formatter.print(sourse);
 	}
 }

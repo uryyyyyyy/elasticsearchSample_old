@@ -18,7 +18,7 @@ public class ClientProvider {
 	private ClientProvider() {
 	}
 
-	private static Client getClient() {
+	public static Client getClient() {
 		if (client == null) {
 			client = new TransportClient(ImmutableSettings.builder()
 					.put("cluster.name", DEFAULT_CLUSTER_NAME));
