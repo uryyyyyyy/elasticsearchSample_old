@@ -5,8 +5,9 @@ elasticsearchSample
 
 ### require
 
-Java 6~
-curl (or other)
+* Java 6~
+* curl
+* shell
 
 ### downloads
 
