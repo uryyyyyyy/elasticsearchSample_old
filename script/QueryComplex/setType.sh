@@ -3,7 +3,7 @@
 curl -XPOST 'http://localhost:9200/query_complex/test/_mapping' -d '{
        "test": {
            "properties": {
-               "title" : { "type" : "string", "index" : "not_analyzed", "analyzer": "ngram_analyzer"},
+               "title" : { "type" : "string", "analyzer": "ngram_analyzer"},
                 "available" : { "type" : "boolean" },
                 "year" : { "type" : "long", "index" : "analyzed" },
                 "outline" : { "type" : "string", "index" : "analyzed"},

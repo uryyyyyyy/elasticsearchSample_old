@@ -9,22 +9,12 @@ elasticsearchSample
 * curl
 * shell
 
-### downloads
+### initialize
 
-* elasticsearch : (I use v1.3.4)
-* datasets : (https://github.com/livedoor/datasets)
-
-set these folder like this
-
-```
-.
-├── datasets
-├── doc
-├── elasticsearch-1.3.4
-├── README.md
-└── script
-
-```
+* `script/setup.sh`
+	- download and install plugins
+* `script/run.sh`
+	- run elasticsearch
 
 ### plugins
 
