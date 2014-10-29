@@ -1,3 +1,3 @@
 #!/bin/sh
 
-curl -XPOST 'http://localhost:9200/kuromoji_sample/_analyze?analyzer=analyzer&petty' -d $1
+curl -XPOST 'http://localhost:9200/kuromoji_sample/_analyze?analyzer=my_kuromoji&petty' -d $1
