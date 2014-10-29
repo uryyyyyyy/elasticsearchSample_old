@@ -1,14 +1,17 @@
 #!/bin/sh
 
-curl -XGET 'http://localhost:9200/sample/test/_search?pretty' -d'
+curl -XGET 'http://localhost:9200/query_complex/test/_search?pretty' -d'
 {
-   "query" : {
-        "range" : {
-            "age" {
-                "gte": 20,
-                "lte": 30,
-                "boost": 2.0
-             }
+    "query" : {
+        "filtered" : {
+            "filter" : {
+                "range" : {
+                    "year" : {
+                        "gte" : 2000,
+                        "lt"  : 2020
+                    }
+                }
+            }
         }
     }
 }'

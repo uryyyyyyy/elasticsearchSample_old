@@ -38,7 +38,7 @@ searchQuery.sh
 
 * took かかった時間（ms）
 * timed_out 時間切れか否か
-* shards いくつのshardに投げて、どれくらい成功したか（デフォでは5Node立ち上がる。）
+* shards いくつのshardに投げて、どれくらい成功したか（デフォでは5つ立ち上がる。）
 * hits（一個目） 結果のsummary
 * hits（二個目） 実際に検索に引っかかったデータ群
 
